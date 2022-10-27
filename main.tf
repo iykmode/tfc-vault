@@ -9,16 +9,15 @@ resource "aws_db_instance" "my_db" {
 }
 
 locals {
-  db_user = jsondecode(
-    data.vault_generic_secret.creds.data["username"]
-  )
+  db_user = data.vault_generic_secret.creds.data["username"]
+  db_password = data.vault_generic_secret.creds.data["password"]
 }
 
-locals {
-  db_password = jsondecode(
-    data.vault_generic_secret.creds.data["password"]
-  )
-}
+# locals {
+#   db_password = jsondecode(
+#     data.vault_generic_secret.creds.data["password"]
+#   )
+# }
 
 data "vault_generic_secret" "creds" {
   # Fill in the name you gave to your secret
