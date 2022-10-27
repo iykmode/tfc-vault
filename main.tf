@@ -3,7 +3,7 @@ resource "aws_db_instance" "my_db" {
   engine_version = "5.7"
   instance_class = "db.t2.micro"
   db_name        = "my_db"
-  # Set the secrets from AWS Secrets Manager
+  # Set the secrets from Vault
   username = local.db_user.username
   password = local.db_password.password
 }
