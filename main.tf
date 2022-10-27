@@ -2,7 +2,7 @@ resource "aws_db_instance" "my_db" {
   engine         = "mysql"
   engine_version = "5.7"
   instance_class = "db.t2.micro"
-  name           = "example"
+  name           = "my_db"
   # Set the secrets from AWS Secrets Manager
   username = local.db_creds.username
   password = local.db_creds.password
