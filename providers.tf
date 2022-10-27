@@ -4,4 +4,7 @@ provider "aws" {
   region     = var.region
 }
 
-provider "vault" {}
+provider "vault" {
+    address = var.VAULT_ADDR
+    token = var.VAULT_TOKEN
+}

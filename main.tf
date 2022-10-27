@@ -1,4 +1,4 @@
-resource "aws_db_instance" "example" {
+resource "aws_db_instance" "my_db" {
   engine         = "mysql"
   engine_version = "5.7"
   instance_class = "db.t2.micro"
