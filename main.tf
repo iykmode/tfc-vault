@@ -4,13 +4,19 @@ resource "aws_db_instance" "my_db" {
   instance_class = "db.t2.micro"
   name           = "db_name"
   # Set the secrets from AWS Secrets Manager
-  username = local.db_creds.value["username"]
-  password = local.db_creds.password["password"]
+  username = local.db_user.username
+  password = local.db_password.password
 }
 
 locals {
-  db_creds = jsondecode(
-    data.vault_generic_secret.creds.value
+  db_user = jsondecode(
+    data.vault_generic_secret.creds.username
+  )
+}
+
+locals {
+  db_password = jsondecode(
+    data.vault_generic_secret.creds.password
   )
 }
 
