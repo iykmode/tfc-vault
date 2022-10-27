@@ -4,8 +4,8 @@ resource "aws_db_instance" "my_db" {
   instance_class = "db.t2.micro"
   db_name        = "my_db"
   # Set the secrets from Vault
-  username = local.db_user.username
-  password = local.db_password.password
+  username = local.db_user
+  password = local.db_password
 }
 
 locals {
